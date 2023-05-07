@@ -10,7 +10,9 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
+import java.io.IOException;
 
 @Controller
 @RequestMapping()
@@ -35,8 +37,8 @@ public class ModerPageController {
     }
 
     @PostMapping("add-author")
-    public String addAuthorSubmit(@ModelAttribute Author author) {
-        authorService.add(author);
+    public String addAuthorSubmit(@ModelAttribute Author author, MultipartFile file) throws IOException {
+        authorService.add(author, file);
 
         return "redirect:/index";
     }
@@ -48,8 +50,8 @@ public class ModerPageController {
     }
 
     @PostMapping("add-book")
-    public String addBookSubmit(@ModelAttribute Book book) {
-        bookService.add(book);
+    public String addBookSubmit(@ModelAttribute Book book, MultipartFile img1, MultipartFile img2, MultipartFile img3) throws IOException {
+        bookService.add(book, img1, img2, img3);
 
         return "redirect:/index";
     }

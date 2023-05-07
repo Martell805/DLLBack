@@ -10,7 +10,7 @@
     <body>
         <div th:insert="~{/header.html}"></div>
 
-        <form action="#" th:action="@{/add-author}" th:object="${author}" method="post" name="add" id="add" class="form_content">
+        <form action="#" th:action="@{/add-author}" th:object="${author}" method="post" name="add" id="add" class="form_content" enctype="multipart/form-data">
             <div class="fieldset">
                 <h2 class="whole-row">Добавить автора</h2>
 
@@ -19,8 +19,13 @@
                     <input  th:field="*{name}"  type="text" name="name" id="name" required autofocus placeholder="Имя">
                 </p>
                 <p>
-                    <label for="name">Описание:</label> <br>
-                    <input  th:field="*{description}"  type="text" name="description" id="description" required autofocus placeholder="Описание">
+                    <label for="description">Описание:</label> <br>
+                    <input  th:field="*{description}"  type="text" name="description" id="description" required placeholder="Описание">
+                </p>
+
+                <p>
+                    <label for="name">Портрет:</label> <br>
+                    <input type="file" name="file" class="form-control-file" accept="image/png, image/jpeg">
                 </p>
 
                 <div class="button-row">
