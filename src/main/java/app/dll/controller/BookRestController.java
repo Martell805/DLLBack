@@ -8,8 +8,8 @@ import java.util.List;
 
 @RestController
 @RequiredArgsConstructor
-@RequestMapping("book")
-public class BookController {
+@RequestMapping("api/book")
+public class BookRestController {
     private final BookService bookService;
     
     @GetMapping

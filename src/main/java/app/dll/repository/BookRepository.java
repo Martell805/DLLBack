@@ -8,4 +8,5 @@ import java.util.List;
 @Repository
 public interface BookRepository extends JpaRepository<Book, Integer> {
     List<Book> findAllByApproved(Boolean approved);
+    List<Book> findAllByAuthorId(Integer id);
 }

@@ -1,7 +1,6 @@
 package app.dll.controller;
 
 import app.dll.entity.User;
-import app.dll.model.LoginDTO;
 import app.dll.service.UserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.Authentication;
@@ -10,8 +9,8 @@ import java.util.List;
 
 @RestController
 @RequiredArgsConstructor
-@RequestMapping("user")
-public class UserController {
+@RequestMapping("api/user")
+public class UserRestController {
     private final UserService userService;
 
     @GetMapping

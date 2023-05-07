@@ -8,8 +8,8 @@ import java.util.List;
 
 @RestController
 @RequiredArgsConstructor
-@RequestMapping("author")
-public class AuthorController {
+@RequestMapping("api/author")
+public class AuthorRestController {
     private final AuthorService authorService;
 
     @GetMapping

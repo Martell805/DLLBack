@@ -1,0 +1,14 @@
+.capcha-fieldset {
+    display: grid;
+    grid-template-rows: repeat(4, 1fr);
+    grid-template-columns: 1fr;
+    place-items: center stretch;
+
+    gap: 10px;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.capcha-fieldset > h2 {
+    text-align: center;
+}

@@ -1,0 +1,191 @@
+form {
+    border-radius: 20px;
+    margin: auto;
+    width: 45%;
+    padding: 5px 20px 20px;
+
+    background-color: rgba(48, 48, 48, 0.7);
+    backdrop-filter: blur(20px);
+    z-index: 0;
+}
+
+form p {
+    margin: 0;
+}
+
+.fieldset {
+    display: grid;
+    grid-template: repeat(4, 1fr) / repeat(2, 1fr);
+    place-items: center stretch;
+    gap: 10px;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.whole-row {
+    grid-column: 1 / span 2;
+    text-align: center;
+}
+
+input {
+    box-sizing: border-box;
+
+    border: 3px solid rgb(48, 48, 48);
+
+    background-color: rgb(80, 80, 80);
+    border-radius: 10px;
+    color: white;
+
+    width: 100%;
+    height: 40px;
+}
+
+input:focus{
+    border-color: white;
+}
+
+textarea {
+    border-radius: 10px;
+    border-color: rgb(48, 48, 48);
+    background-color: rgb(80, 80, 80);
+    color: white;
+}
+
+input::placeholder{
+    color: #A5A5A5;
+}
+
+textarea::placeholder{
+    color: #A5A5A5;
+}
+
+.submit-button {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+@media (orientation: portrait) {
+    form {
+        width: 70%;
+    }
+
+    .fieldset {
+        grid-template: repeat(6, 1fr) / repeat(1, 1fr);
+    }
+
+    .whole-row {
+        grid-column: 1 / span 1;
+    }
+
+}
+
+form .form-square1 {
+    content:"";
+    position: absolute;
+    border-radius: 8px;
+
+    top:40%;
+    left:-25%;
+    height: 120px;
+    width: 120px;
+    background-color: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(10px);
+    z-index:110;
+
+    animation: form-square-anim1 3s linear infinite;
+}
+
+form .form-square2 {
+    content:"";
+    position: absolute;
+    border-radius: 8px;
+
+    top:-15%;
+    right:-10%;
+    height: 100px;
+    width: 100px;
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(10px);
+    z-index:-110;
+
+    animation: form-square-anim1 4s ease-out infinite;
+}
+
+form .form-square3 {
+    content:"";
+    position: absolute;
+    border-radius: 8px;
+
+    top:-15%;
+    left:30%;
+    height: 60px;
+    width: 60px;
+    background-color: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(10px);
+    z-index:-110;
+
+    animation: form-square-anim2 3s ease-in-out infinite;
+}
+
+form .form-square4 {
+    content:"";
+    position: absolute;
+    border-radius: 8px;
+
+    bottom:5%;
+    right:-15%;
+    height: 70px;
+    width: 70px;
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(10px);
+    z-index:110;
+
+    animation: form-square-anim1 2s ease-out infinite;
+}
+
+form .form-square5 {
+    content:"";
+    position: absolute;
+    border-radius: 8px;
+
+    bottom:-30%;
+    left:40%;
+    height: 50px;
+    width: 50px;
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(10px);
+    z-index:110;
+
+    animation: form-square-anim2 3s ease-in infinite;
+}
+
+
+@keyframes form-square-anim1 {
+    from, to {
+        transform: translateX(calc(-100% + 1vw)) translateY(calc(100% - 20px + 1vh));
+    }
+    20% {
+        transform: translateX(calc(50% + 30px + 2vw)) translateY(calc(50% + 20px + 1vh));
+    }
+    50% {
+        transform: translateX(calc(50% + 30px + 2vw)) translateY(calc(-40% + 20px + 1vh));
+    }
+    70% {
+        transform: translateX(calc(-200% + 1vw)) translateY(calc(-50% + 20px));
+    }
+}
+
+@keyframes form-square-anim2 {
+    from, to {
+        transform: translateX(calc(-50% + 1vw)) translateY(calc(100% - 20px + 1vh));
+    }
+    30% {
+        transform: translateX(calc(50% - 30px + 2vw)) translateY(calc(50% + 20px + 1vh));
+    }
+    60% {
+        transform: translateX(calc(20% + 30px + 2vw)) translateY(calc(-10% + 20px + 1vh));
+    }
+    80% {
+        transform: translateX(calc(100% + 1vw)) translateY(calc(120% + 20px));
+    }
+}

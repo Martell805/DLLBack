@@ -52,20 +52,23 @@ public class SecurityConfig {
         return httpSecurity
                 .httpBasic().and()
                 .authorizeHttpRequests(authorize -> authorize
-                        .requestMatchers(HttpMethod.POST, "user").permitAll()
-                        .requestMatchers("user/login").permitAll()
-                        .requestMatchers("user").hasAuthority("MODER")
-                        .requestMatchers("user/all").hasAuthority("MODER")
+                        .requestMatchers(HttpMethod.POST, "api/user").permitAll()
+                        .requestMatchers("api/user/login").permitAll()
+                        .requestMatchers("api/user").hasAuthority("MODER")
+                        .requestMatchers("api/user/all").hasAuthority("MODER")
 
-                        .requestMatchers(HttpMethod.GET, "author").permitAll()
-                        .requestMatchers("author/all").permitAll()
-                        .requestMatchers(HttpMethod.POST, "author").authenticated()
+                        .requestMatchers(HttpMethod.GET, "api/author").permitAll()
+                        .requestMatchers("api/author/all").permitAll()
+                        .requestMatchers(HttpMethod.POST, "api/author").authenticated()
 
-                        .requestMatchers(HttpMethod.GET, "book").permitAll()
-                        .requestMatchers(HttpMethod.POST, "book").authenticated()
-                        .requestMatchers("book/all").permitAll()
-                        .requestMatchers("book/all/moderate").hasAuthority("MODER")
-                        .requestMatchers("book/approve").hasAuthority("MODER")
+                        .requestMatchers(HttpMethod.GET, "api/book").permitAll()
+                        .requestMatchers(HttpMethod.POST, "api/book").authenticated()
+                        .requestMatchers("api/book/all").permitAll()
+                        .requestMatchers("api/book/all/moderate").hasAuthority("MODER")
+                        .requestMatchers("api/book/approve").hasAuthority("MODER")
+
+                        .requestMatchers("add-author").authenticated()
+                        .requestMatchers("add-book").authenticated()
 
                         .requestMatchers("**").permitAll()
                 )
