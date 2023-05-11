@@ -29,9 +29,7 @@ public class AuthorisationController {
     public String registerSubmit(@ModelAttribute User user, HttpServletRequest req) {
         userService.add(user);
 
-        userService.authorise(user, req);
-
-        return "redirect:/index";
+        return "redirect:/login";
     }
 
     @GetMapping("login")
@@ -41,9 +39,10 @@ public class AuthorisationController {
     }
 
     @PostMapping("login")
-    public String loginSubmit(@ModelAttribute User user, HttpServletRequest req, Model model) {
-
-        userService.authorise(user, req);
+    public String loginSubmit(@ModelAttribute User user, HttpServletRequest req) {
+        if (!userService.authorise(user, req)) {
+            return "redirect:/login";
+        }
 
         return "redirect:/index";
     }

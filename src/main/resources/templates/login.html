@@ -2,13 +2,13 @@
 <html lang="en">
     <head>
         <meta charset="UTF-8">
-        <link rel="icon" type="image/png" th:href="@{/images/logo.png}">
+        <link rel="icon" type="image/png" th:href="@{images/logo.png}">
         <title>Вход</title>
 
-        <link rel="stylesheet" th:href="@{/styles/style.css}">
+        <link rel="stylesheet" th:href="@{styles/style.css}">
     </head>
     <body>
-        <div th:insert="~{/header.html}"></div>
+        <div th:insert="~{header.html}"></div>
 
         <form action="#" th:action="@{/login}" th:object="${user}" method="post" name="login" id="login" class="form_content">
             <div class="fieldset">

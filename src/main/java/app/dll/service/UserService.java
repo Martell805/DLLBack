@@ -26,6 +26,10 @@ public class UserService {
         return userRepository.findById(id).orElseThrow();
     }
 
+    public User getByUsername(String username) {
+        return userRepository.findByUsername(username).orElseThrow();
+    }
+
     public List<User> getAll() {
         return userRepository.findAll();
     }
@@ -33,6 +37,14 @@ public class UserService {
     public User add(User user) {
         user.setPassword(passwordEncoder.encode(user.getPassword()));
         user.setRole("USER");
+        return userRepository.save(user);
+    }
+
+    public User addModer(User user) {
+        System.out.println(user.getPassword());
+        user.setPassword(passwordEncoder.encode(user.getPassword()));
+        System.out.println(user.getPassword());
+        user.setRole("MODER");
         return userRepository.save(user);
     }
 

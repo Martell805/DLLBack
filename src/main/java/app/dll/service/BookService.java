@@ -1,6 +1,5 @@
 package app.dll.service;
 
-import app.dll.entity.Author;
 import app.dll.entity.Book;
 import app.dll.entity.BookImage;
 import app.dll.repository.BookImageRepository;
@@ -36,15 +35,11 @@ public class BookService {
     }
 
     public Book add(Book book) {
-        book.setApproved(true);
+        book.setApproved(false);
         return bookRepository.save(book);
     }
 
-    public Book add(Book book,
-                    @RequestParam("img1") MultipartFile img1,
-                    @RequestParam("img2") MultipartFile img2,
-                    @RequestParam("img3") MultipartFile img3) throws IOException {
-
+    public Book add(Book book, MultipartFile img1, MultipartFile img2, MultipartFile img3) throws IOException {
         book = add(book);
 
         bookImageRepository.saveAll(List.of(

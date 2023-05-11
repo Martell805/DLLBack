@@ -2,13 +2,13 @@
 <html lang="en">
     <head>
         <meta charset="UTF-8">
-        <link rel="icon" type="image/png" th:href="@{/images/logo.png}">
+        <link rel="icon" type="image/png" th:href="@{images/logo.png}">
         <title>Регистрация</title>
 
-        <link rel="stylesheet" th:href="@{/styles/style.css}">
+        <link rel="stylesheet" th:href="@{styles/style.css}">
     </head>
     <body>
-        <div th:insert="~{/header.html}"></div>
+        <div th:insert="~{header.html}"></div>
 
         <form autocomplete="off" name="capcha" id="capcha" class="form_content">
             <div class="capcha-fieldset">
@@ -68,6 +68,6 @@
             <span class="form-square form-square5"></span>
         </form>
 
-        <script th:src="@{/scripts/register.js}"></script>
+        <script th:src="@{scripts/register.js}"></script>
     </body>
 </html>

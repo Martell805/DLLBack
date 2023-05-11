@@ -51,8 +51,6 @@ public class InfoPageController {
         List<Author> authors = new ArrayList<>();
         List<BookImage> bookImages = new ArrayList<>();
 
-        System.out.println(books);
-
         books.forEach(book -> {
             authors.add(authorService.get(book.getAuthorId()));
             bookImages.add(bookService.getAllImages(book.getId()).get(0));

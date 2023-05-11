@@ -3,7 +3,6 @@ package app.dll.entity;
 import jakarta.persistence.*;
 import lombok.*;
 
-
 @Entity
 @Getter
 @Setter

@@ -67,9 +67,6 @@ public class SecurityConfig {
                         .requestMatchers("api/book/all/moderate").hasAuthority("MODER")
                         .requestMatchers("api/book/approve").hasAuthority("MODER")
 
-//                        .requestMatchers("add-author").authenticated()
-//                        .requestMatchers("add-book").authenticated()
-
                         .requestMatchers("**").permitAll()
                 )
                 .csrf().disable()

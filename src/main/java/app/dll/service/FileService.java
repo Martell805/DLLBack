@@ -11,8 +11,6 @@ import java.nio.file.Paths;
 @Service
 public class FileService {
     public String saveFile(String name, MultipartFile file) throws IOException {
-        System.out.println(file);
-
         String originalFileName = file.getOriginalFilename();
 
         if (originalFileName == null) {
