@@ -1,0 +1,61 @@
+.button, button {
+    position: relative;
+    border-radius: 10px;
+    border-color: rgb(48, 48, 48);
+    background-color: rgb(64, 64, 64);
+    color: white;
+    padding: 10px;
+
+    text-align: center;
+    vertical-align: middle;
+    overflow: hidden;
+}
+
+.button1::after {
+    content:"";
+    position: absolute;
+    top: 110%;
+    height: 500%;
+    width: 500px;
+    left: 0;
+    background: linear-gradient(rgba(255, 255, 255, 0.4), rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.1));
+}
+
+.button1:hover::after {
+    top: -110%;
+    transition: top .5s ease-in-out;
+}
+
+.button2:hover{
+    transition: all .5s ease-in-out;
+    transform: translateY(-10px);
+    box-shadow: 0 10px 2px -2px rgba(0, 0, 0, 0.5);
+}
+
+.button3::before, .button3::after{
+    content:"";
+    position: absolute;
+    right:50%;
+    background: rgb(255, 255, 255);
+    width:0;
+    height: 2px;
+}
+
+.button3::before {
+    top: 0;
+}
+
+.button3::after {
+    bottom: 0;
+}
+
+.button3:hover::before, .button3:hover::after {
+    right:0;
+    width:100%;
+    transition: all .5s ease-in-out;
+}
+
+.button4:hover {
+    background-color: rgb(80, 80, 80);
+    transition: 0.5s;
+}

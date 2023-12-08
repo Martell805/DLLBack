@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" type="image/png" th:href="@{images/logo.png}">
+    <title>DLL</title>
+
+    <link rel="stylesheet" th:href="@{styles/style.css}">
+</head>
+<body>
+
+<div th:insert="~{header.html}"></div>
+
+<main>
+    <div class="fullscreen-section">
+        <div class="row book-row">
+            <div th:each="book, n: ${books}" class="card book-card">
+                <h2 th:text="${book.name}"></h2>
+                <i><a th:text="${authors[n.index].name}" th:href="@{/author(id=${authors[n.index].id})}"></a></i>
+                <img style="height: 100px; display: inline-block;" th:src="${bookImages[n.index].path}">
+                <p class="card-info" th:text="${book.description}"></p>
+                <a class="button button2" th:href="@{/book(id=${book.id})}">Подробнее</a>
+            </div>
+
+            <div class="card-blackout"></div>
+        </div>
+    </div>
+</main>
+
+<div th:insert="~{footer.html}"></div>
+
+</body>
+
+</html>

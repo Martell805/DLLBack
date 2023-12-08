@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <link rel="icon" type="image/png" th:href="@{images/logo.png}">
+        <title>Добавить книгу</title>
+
+        <link rel="stylesheet" th:href="@{styles/style.css}">
+    </head>
+    <body>
+        <div th:insert="~{header.html}"></div>
+
+        <form action="#" th:action="@{/add-book}" th:object="${book}" method="post" name="add" id="add" class="form_content" enctype="multipart/form-data">
+            <div class="fieldset">
+                <h2 class="whole-row">Добавить книгу</h2>
+
+                <p>
+                    <label for="name">Название:</label> <br>
+                    <input  th:field="*{name}"  type="text" name="name" id="name" required autofocus placeholder="Название">
+                </p>
+                <p>
+                    <label for="authorId">Id автора:</label> <br>
+                    <input  th:field="*{authorId}"  type="text" name="authorId" id="authorId" required autofocus placeholder="Id автора">
+                </p>
+                <p>
+                    <label for="description">Описание:</label> <br>
+                    <input  th:field="*{description}"  type="text" name="description" id="description" required autofocus placeholder="Описание">
+                </p>
+                <p>
+                    <label for="name">Иллюстрация 1:</label> <br>
+                    <input type="file" name="img1" class="form-control-file" accept="image/png, image/jpeg">
+                </p>
+                <p>
+                    <label for="name">Иллюстрация 2:</label> <br>
+                    <input type="file" name="img2" class="form-control-file" accept="image/png, image/jpeg">
+                </p>
+                <p>
+                    <label for="name">Иллюстрация 3:</label> <br>
+                    <input type="file" name="img3" class="form-control-file" accept="image/png, image/jpeg">
+                </p>
+                <div class="button-row">
+                    <button type="submit" name="submit" class="button1 button2 whole-row submit-button">Добавить</button>
+                </div>
+            </div>
+
+            <span class="form-square form-square1"></span>
+            <span class="form-square form-square2"></span>
+            <span class="form-square form-square3"></span>
+            <span class="form-square form-square4"></span>
+            <span class="form-square form-square5"></span>
+        </form>
+    </body>
+</html>

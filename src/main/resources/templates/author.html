@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" type="image/png" th:href="@{images/logo.png}">
+  <title>DLL</title>
+
+  <link rel="stylesheet" th:href="@{styles/style.css}">
+</head>
+<body>
+
+<div th:insert="~{header.html}"></div>
+
+<main>
+  <div class="fullscreen-section">
+    <h2 th:text="${author.name}" class="name"></h2>
+
+    <div th:text="${author.description}" class="description">
+    </div>
+
+    <img class="big-img" alt="Аватарка автора" th:src="${author.portrait}">
+
+    <ul>
+      <li th:each="book : ${books}">
+        <i><a th:text="${book.name}" th:href="@{/book(id=${book.id})}"></a></i>
+      </li>
+    </ul>
+  </div>
+</main>
+
+<br>
+
+<div th:insert="~{footer.html}"></div>
+
+</body>
+
+</html>

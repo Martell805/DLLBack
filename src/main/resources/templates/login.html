@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <link rel="icon" type="image/png" th:href="@{images/logo.png}">
+        <title>Вход</title>
+
+        <link rel="stylesheet" th:href="@{styles/style.css}">
+    </head>
+    <body>
+        <div th:insert="~{header.html}"></div>
+
+        <form action="#" th:action="@{/login}" th:object="${user}" method="post" name="login" id="login" class="form_content">
+            <div class="fieldset">
+                <h2 class="whole-row">Вход</h2>
+
+                <p>
+                    <label for="name">Имя:</label> <br>
+                    <input  th:field="*{username}"  type="text" name="name" id="name" required autofocus placeholder="Отображаемое имя">
+                </p>
+                <p>
+                    <label for="password">Пароль:</label> <br>
+                    <input th:field="*{password}" type="password" name="password" id="password" required placeholder="Пароль">
+                </p>
+                <div class="button-row">
+                    <button type="submit" name="submit" class="button1 button2 whole-row submit-button">Войти</button>
+                </div>
+            </div>
+
+            <span class="form-square form-square1"></span>
+            <span class="form-square form-square2"></span>
+            <span class="form-square form-square3"></span>
+            <span class="form-square form-square4"></span>
+            <span class="form-square form-square5"></span>
+        </form>
+    </body>
+</html>

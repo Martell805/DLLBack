@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" type="image/png" th:href="@{images/logo.png}">
+    <title>DLL</title>
+
+    <link rel="stylesheet" th:href="@{styles/style.css}">
+</head>
+<body>
+
+<div th:insert="~{header.html}"></div>
+
+<main>
+    <div class="fullscreen-section">
+        <h2 th:text="${book.name}" class="name"></h2>
+
+        <p>Автор:
+            <i><a th:text="${author.name}" th:href="@{/author(id=${author.id})}" class="author"></a></i>
+        </p>
+
+        <div th:text="${book.description}" class="description">
+        </div>
+
+
+        <div class="gallery">
+            <div class="main-img">
+                <img class="big-img" alt="Книги" th:src="${img[0].path}">
+            </div>
+
+            <div class="preview-row">
+                <img class="small-img selected-img" alt="Книги" th:src="${img[0].path}">
+                <img class="small-img" alt="Книги" th:src="${img[1].path}">
+                <img class="small-img" alt="Книги" th:src="${img[2].path}">
+            </div>
+        </div>
+
+        <div sec:authorize="hasAuthority('MODER')" class="row">
+            <a class="button button1" th:href="@{/approve(id=${book.id})}">Одобрить</a>
+        </div>
+
+        <script th:src="@{scripts/gallery.js}"></script>
+    </div>
+</main>
+
+<br>
+
+<div th:insert="~{footer.html}"></div>
+
+</body>
+</html>

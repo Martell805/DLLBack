@@ -1,0 +1,60 @@
+.card {
+    position: relative;
+    border-radius: 20px;
+    height: auto;
+    padding: 10px;
+    background: linear-gradient(0deg, rgb(0, 0, 0), #BBBBBB);
+    text-align: center;
+
+    transition: transform 0.5s;
+
+    flex-basis: 25%;
+    max-width: 70%;
+
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 2fr 1fr 2fr 5fr 1fr;
+    justify-items: center;
+}
+
+.card h2 {
+    margin: 0;
+}
+
+.card:hover {
+    z-index: 8;
+    transform: scale(1.1);
+}
+
+.card-blackout {
+    position: absolute;
+    top: -20px;
+    left: -20px;
+    width: calc(100% + 40px);
+    height: calc(100% + 60px);
+    border-radius: 20px;
+
+    z-index: -7;
+}
+
+.card:hover ~ .card-blackout {
+    animation: 0.7s blackout-card-background forwards;
+}
+
+.card a {
+    text-decoration: none;
+}
+
+@keyframes blackout-card-background {
+    from {
+        backdrop-filter: brightness(100%);
+        z-index: -7;
+    }
+    20% {
+        z-index: 7;
+    }
+    to {
+        backdrop-filter: brightness(30%);
+        z-index: 7;
+    }
+}

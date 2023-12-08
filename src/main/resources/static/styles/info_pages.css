@@ -1,0 +1,11 @@
+.description {
+    float: right;
+    width: 35%;
+}
+
+@media (orientation: portrait) {
+    .description {
+        float: none;
+        width: 100%;
+    }
+}

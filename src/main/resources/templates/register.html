@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <link rel="icon" type="image/png" th:href="@{images/logo.png}">
+        <title>Регистрация</title>
+
+        <link rel="stylesheet" th:href="@{styles/style.css}">
+    </head>
+    <body>
+        <div th:insert="~{header.html}"></div>
+
+        <form autocomplete="off" name="capcha" id="capcha" class="form_content">
+            <div class="capcha-fieldset">
+                <h2>Проверка</h2>
+
+                <p>
+                    <label id="question">Текст вопроса</label> <br>
+                </p>
+
+                <p>
+                    <label for="answer">Имя:</label> <br>
+                    <input type="text" name="answer" id="answer" required autofocus placeholder="Ответ">
+                </p>
+
+                <div class="button-row">
+                    <button name="submit-capcha" id="submit-capcha" class="button1 button2 whole-row submit-button"> Подтвердить </button>
+                </div>
+            </div>
+
+            <span class="form-square form-square1"></span>
+            <span class="form-square form-square2"></span>
+            <span class="form-square form-square3"></span>
+            <span class="form-square form-square4"></span>
+            <span class="form-square form-square5"></span>
+        </form>
+
+        <form action="#" th:action="@{/register}" th:object="${user}" method="post" name="registration" id="registration" class="form_content">
+            <div class="fieldset">
+                <h2 class="whole-row">Регистрация</h2>
+                <p>
+                    <label for="name">Имя:</label> <br>
+                    <input  th:field="*{username}"  type="text" name="name" id="name" required autofocus placeholder="Отображаемое имя">
+                </p>
+
+                <p>
+                    <label for="fullname">ФИО:</label> <br>
+                    <input th:field="*{name}" type="text" name="fullname" id="fullname" required autofocus placeholder="ФИО">
+                </p>
+
+                <p>
+                    <label for="email">Электронная почта:</label> <br>
+                    <input th:field="*{email}" type="email" name="email" id="email" required placeholder="Электронная почта" pattern="*@*.*">
+                </p>
+                <p>
+                    <label for="password">Пароль:</label> <br>
+                    <input th:field="*{password}" type="password" name="password" id="password" required placeholder="Пароль">
+                </p>
+                <div class="button-row">
+                    <button type="submit" name="submit" class="button1 button2 whole-row submit-button"> Зарегистрироваться </button>
+                </div>
+            </div>
+
+            <span class="form-square form-square1"></span>
+            <span class="form-square form-square2"></span>
+            <span class="form-square form-square3"></span>
+            <span class="form-square form-square4"></span>
+            <span class="form-square form-square5"></span>
+        </form>
+
+        <script th:src="@{scripts/register.js}"></script>
+    </body>
+</html>
