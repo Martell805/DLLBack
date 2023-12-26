@@ -9,7 +9,7 @@ services:
     ports:
       - "5432:5432"
   app:
-    image: 'martell805/dll:1.0'
+    image: 'martell805/dll:1.1'
     container_name: DLL
     depends_on:
       - postgres
