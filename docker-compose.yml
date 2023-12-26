@@ -6,10 +6,8 @@ services:
       POSTGRES_DB: "dll"
       POSTGRES_USER: "admin"
       POSTGRES_PASSWORD: "admin"
-    ports:
-      - "5432:5432"
   app:
-    image: 'martell805/dll:1.1'
+    image: 'martell805/dll:1.2'
     container_name: DLL
     depends_on:
       - postgres

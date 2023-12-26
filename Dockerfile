@@ -1,6 +1,6 @@
-FROM openjdk:17
+FROM maven:3.9.6-amazoncorretto-17
 VOLUME /tmp
 USER root
 WORKDIR /app
-COPY target/DLL-1.0.jar app.jar
-CMD ["java","-jar","app.jar"]
+COPY . .
+CMD ["mvn","clean","compile","exec:java"]
